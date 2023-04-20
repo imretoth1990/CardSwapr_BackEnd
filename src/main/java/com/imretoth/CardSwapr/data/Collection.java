@@ -3,9 +3,10 @@ package com.imretoth.CardSwapr.data;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table(name = "COLLECTIONS")
+@Table(name = "card_collection")
 public class Collection {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,5 +42,30 @@ public class Collection {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Collection that = (Collection) o;
+
+        return Objects.equals( id, that.id );
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Collection{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", cards=" + cards +
+                '}';
     }
 }

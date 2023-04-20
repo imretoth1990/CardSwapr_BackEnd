@@ -2,8 +2,10 @@ package com.imretoth.CardSwapr.data;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
-@Table(name = "CARDS")
+@Table(name = "card")
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -82,5 +84,35 @@ public class Card {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Card card = (Card) o;
+
+        return Objects.equals( id, card.id );
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", artist='" + artist + '\'' +
+                ", description='" + description + '\'' +
+                ", power=" + power +
+                ", toughness=" + toughness +
+                ", manaValue=" + manaValue +
+                ", type='" + type + '\'' +
+                ", collection=" + collection +
+                '}';
     }
 }
