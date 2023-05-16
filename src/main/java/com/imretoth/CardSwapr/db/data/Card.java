@@ -1,7 +1,6 @@
-package com.imretoth.CardSwapr.data;
+package com.imretoth.CardSwapr.db.data;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name="cards")
 public class Card {
@@ -84,8 +83,6 @@ public class Card {
     public void setImg(String img) {
         this.img = img;
     }
-
-
 
     @Override
     public String toString() {

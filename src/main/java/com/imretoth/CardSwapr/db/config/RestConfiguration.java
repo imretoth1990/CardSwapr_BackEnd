@@ -1,6 +1,6 @@
-package com.imretoth.CardSwapr.config;
+package com.imretoth.CardSwapr.db.config;
 
-import com.imretoth.CardSwapr.data.Card;
+import com.imretoth.CardSwapr.db.data.Card;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;

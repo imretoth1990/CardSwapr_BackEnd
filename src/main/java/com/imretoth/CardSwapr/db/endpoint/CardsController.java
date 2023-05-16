@@ -1,7 +1,7 @@
-package com.imretoth.CardSwapr.endpoint;
+package com.imretoth.CardSwapr.db.endpoint;
 
-import com.imretoth.CardSwapr.data.Card;
-import com.imretoth.CardSwapr.repositories.CardRepository;
+import com.imretoth.CardSwapr.db.data.Card;
+import com.imretoth.CardSwapr.db.repositories.CardRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/cards")
-@CrossOrigin(origins = "http://localhost:3000")
 public class CardsController {
     private final CardRepository cardRepository;
 
@@ -43,7 +42,6 @@ public class CardsController {
         if (cardData.isPresent()) {
             Card currentCard = cardData.get();
             setAll(card, currentCard);
-
             return new ResponseEntity<>(cardRepository.save(currentCard), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
